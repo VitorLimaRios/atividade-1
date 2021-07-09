@@ -18,14 +18,7 @@ const io = require('socket.io')(http, {
 io.on('connection', (socket) => {
   console.log(`${socket.id} se conectou`)
   socket.on('bid', async (obj) => {
-    // console.log('entrou aqui');
-    let updatedProduct = await increasePrice(obj._id);
-    // console.log('updatedProduct: ', updatedProduct);
-    if (updatedProduct.value.price >= 100) {
-      updatedProduct = await updateSold(obj._id)
-      console.log('updatedProduct: ', updatedProduct)
-    }
-
+    const updatedProduct = await increasePrice(obj._id);
     io.emit('increasePrice', updatedProduct.value);
   });
 });

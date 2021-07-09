@@ -20,15 +20,8 @@ const increasePrice = async (id) => {
   return product;
 }
 
-const updateSold = async (id) => {
-  const product = await connection()
-    .then((db) => db.collection('products').findOneAndUpdate({ _id: ObjectId(id) }, { $set: { sold: true } },{ returnNewDocument: true }));
-  return product;
-}
-
 module.exports = {
   getAll,
   getById,
   increasePrice,
-  updateSold,
 }
