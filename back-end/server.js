@@ -34,4 +34,4 @@ app.get('/products', async (req, res) => {
   res.status(200).json(products);
 });
 
-http.listen(PORT);
+http.listen(PORT, () => {console.log(`Ouvindo na porta ${PORT}`)});

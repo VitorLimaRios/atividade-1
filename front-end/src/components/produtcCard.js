@@ -20,7 +20,7 @@ function ProductCard(props) {
   };
 
   return (
-    <section className="product-card">
+    <div className="product-card">
       <div className="product-card-img-container">
         <img src={img} alt={name} />
       </div>
@@ -29,7 +29,7 @@ function ProductCard(props) {
         <p>R$ {itemPrice}</p>
         <button disabled={itemPrice >= 100} onClick={handleClick}>{itemPrice >= 100 ? "Arrematado" : "Dar um lance" }</button>
       </div>
-    </section>
+    </div>
   );
 }
 

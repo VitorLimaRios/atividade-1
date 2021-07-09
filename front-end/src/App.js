@@ -16,14 +16,15 @@ function App() {
 
   return (
     <main className="App">
+    <header>
       <h1>Leilao de centavos</h1>
+    </header>
       <div className="products-container">
-
-      </div>
       { loading
         ? <p>Loading...</p>
         : products.map((item, index) => <ProductCard key={index} product={item} /> )
       }
+      </div>
     </main>
   );
 }
