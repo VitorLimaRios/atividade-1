@@ -20,12 +20,16 @@ function ProductCard(props) {
   };
 
   return (
-    <div>
-      <h2>{name}</h2>
-      <img src={img} alt={name} />
-      <p>R$ {itemPrice}</p>
-      <button disabled={itemPrice >= 100} onClick={handleClick}>{itemPrice >= 100 ? "Arrematado" : "Dar um lance" }</button>
-    </div>
+    <section className="product-card">
+      <div className="product-card-img-container">
+        <img src={img} alt={name} />
+      </div>
+      <div className="product-card-content">
+        <h2>{name}</h2>
+        <p>R$ {itemPrice}</p>
+        <button disabled={itemPrice >= 100} onClick={handleClick}>{itemPrice >= 100 ? "Arrematado" : "Dar um lance" }</button>
+      </div>
+    </section>
   );
 }
 

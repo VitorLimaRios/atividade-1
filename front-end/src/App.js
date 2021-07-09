@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './App.css';
 import ProductCard from './components/produtcCard';
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
   return (
     <main className="App">
       <h1>Leilao de centavos</h1>
+      <div className="products-container">
+
+      </div>
       { loading
         ? <p>Loading...</p>
         : products.map((item, index) => <ProductCard key={index} product={item} /> )
