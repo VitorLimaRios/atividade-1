@@ -16,9 +16,13 @@ const getById = async (id) => {
 
 const increasePrice = async (id) => {
   const product = await connection()
-    .then((db) => db.collection('products').updateOne(ObjectId(id), {
-      $inc: { price: 5 }
-    }));
+    .then((db) => db.collection('products').findOneAndUpdate({ _id: ObjectId(id) }, { $inc: { price: 5 } },{ returnNewDocument: true }));
+  return product;
+}
+
+const updateSold = async (id) => {
+  const product = await connection()
+    .then((db) => db.collection('products').findOneAndUpdate({ _id: ObjectId(id) }, { $set: { sold: true } },{ returnNewDocument: true }));
   return product;
 }
 
@@ -26,4 +30,5 @@ module.exports = {
   getAll,
   getById,
   increasePrice,
+  updateSold,
 }

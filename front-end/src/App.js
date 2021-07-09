@@ -16,7 +16,7 @@ function App() {
   return (
     <main className="App">
       <h1>Leilao de centavos</h1>
-      { loading 
+      { loading
         ? <p>Loading...</p>
         : products.map((item, index) => <ProductCard key={index} product={item} /> )
       }
